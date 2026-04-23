@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Static frontend for the Auth System project with sign up and login pages.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./frontend/css/shared.css">
+    <title>Auth System</title>
+</head>
+
+<body class="landing-page">
+    <main class="landing-shell">
+        <section class="landing-card">
+            <div class="landing-copy">
+                <p class="landing-eyebrow">Authentication Demo</p>
+                <h1>Sign up and log in from a real homepage.</h1>
+                <p class="landing-text">
+                    This GitHub Pages site now points to the actual frontend instead of an empty README render.
+                    Use the links below to open the authentication screens.
+                </p>
+                <div class="landing-actions">
+                    <a class="form-btn form-btn--submit landing-btn" href="./frontend/pages/signup.html">Open Sign Up</a>
+                    <a class="form-btn form-btn--ghost landing-btn" href="./frontend/pages/login.html">Open Login</a>
+                </div>
+                <div class="landing-note">
+                    <strong>Backend note:</strong> form submission needs the Express API running on
+                    <code>http://localhost:8080</code> or another deployed API URL.
+                </div>
+            </div>
+            <div class="landing-preview">
+                <img src="./assets/sign.jpg" alt="Auth interface preview" class="landing-image">
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

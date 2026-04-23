@@ -2,9 +2,16 @@ const usernameInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const warningMsg = document.getElementById("warningMsg");
 const emailInput = document.getElementById("email");
-const submitBtn = document.querySelector(".form-btn");
 const termsInput = document.getElementById("termsInput");
 const form = document.querySelector(".form-box");
+const togglePasswordButton = document.querySelector(".eye-icon");
+const API_BASE_URL = window.AUTH_API_BASE_URL || "http://localhost:8080";
+
+const buildApiUrl = (path) => `${API_BASE_URL}${path}`;
+
+const togglePasswordVisibility = () => {
+    passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+};
 
 const handleInputForm = async (e) => {
     e.preventDefault();
@@ -28,7 +35,7 @@ const handleInputForm = async (e) => {
     }
 
     try {
-        const response = await fetch("http://localhost:8000/api/signup", {
+        const response = await fetch(buildApiUrl("/api/signup"), {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -45,12 +52,13 @@ const handleInputForm = async (e) => {
             return;
         }
 
-            warningMsg.textContent = data.message;
+        warningMsg.textContent = data.message;
+        form.reset();
     } catch (error) {
-        warningMsg.textContent = "Server error. Please try again.";
+        warningMsg.textContent = "Unable to reach the API. Start the backend or configure AUTH_API_BASE_URL.";
         console.log(error);
-        console.log(object);
     }
 };
 
 form.addEventListener("submit", handleInputForm);
+togglePasswordButton?.addEventListener("click", togglePasswordVisibility);
