@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../css/shared.css">
+    <title>auth system</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-blob">
+                <div class="blob-layer blob-layer--1">
+                    <img src="../../assets/blob.svg" alt="blob" class="blob-image" />
+                </div>
+                <div class="blob-layer blob-layer--2">
+                    <img src="../../assets/blob.svg" alt="blob" class="blob-image" />
+                </div>
+                <div class="blob-layer blob-layer--3">
+                    <img src="../../assets/blob.svg" alt="blob" class="blob-image" />
+                </div>
+            </div>
+
+            <div class="form-header">
+                <p>Please enter your details</p>
+                <h1>Get Started Now</h1>
+            </div>
+            <form class="form-box">
+                <div class="input-group">
+                    <input type="text" id="username" class="input-field" placeholder="" required />
+                    <label for="username" class="floating-label">Name</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" class="input-field" placeholder="" required />
+                    <label for="email" class="floating-label">Email address</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" class="input-field" placeholder="" required />
+                    <label for="password" class="floating-label">Password</label>
+                    <div class="eye-icon" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-eye-icon lucide-eye">
+                            <path
+                                d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="input-group checkbox-group">
+                    <div class="form-col remember-me">
+                        <input type="checkbox" id="termsInput" class="checkbox-field" />
+                        <label for="termsInput">I agree to the <span>term & service</span></label>
+                    </div>
+                    <div class="form-col">
+                        <a href="#" class="form-link">Forgot password?</a>
+                    </div>
+                </div>
+                <button type="submit" class="form-btn form-btn--submit">
+                    Sign Up
+                </button>
+            </form>
+            <div class="form-divider">
+                <p>Or</p>
+            </div>
+            <div class="form-bottom">
+                <div class="form-socials">
+                    <button class="form-btn form-btn--social">
+                        <img src="../../assets/google.svg" class="btn-icon" alt="social icon" />
+                    </button>
+                    <button class="form-btn form-btn--social">
+                        <img src="../../assets/facebook.svg" class="btn-icon" alt="social icon" />
+                    </button>
+                    <button class="form-btn form-btn--social">
+                        <img src="../../assets/apple.svg" class="btn-icon" alt="social icon" />
+                    </button>
+                </div>
+                <p>
+                    Don't have an account? <a href="./login.html" class="form-link">Sign In</a>
+                </p>
+
+                <p id="warningMsg"></p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/frontend/js/signUp.js"></script>
+</body>

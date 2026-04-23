@@ -32,7 +32,7 @@ export const signUp =  async(req, res) => {
 
         if (isUsernameExist || isEmailExist) {
             return res.status(409).json({
-                message: "info already exist!",
+                message: "user already exist!",
             });
         }
 
@@ -77,14 +77,14 @@ export const login = async (req, res) => {
 
         if (!userInfo) {
             return res.status(400).json({
-                message: "login info are wrong! Try again",
+                message: "User not found! Try again",
             });
         }
             const isMatch = await bcrypt.compare(password, userInfo.password);
 
             if (!isMatch) {
                 return res.status(400).json({
-                    message: "login info are wrong! Try again",
+                    message: "User not found! Try again",
             });
         }
 
