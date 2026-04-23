@@ -1,40 +1,347 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Static frontend for the Auth System project with sign up and login pages.">
+    <meta name="description" content="auth-system authentication homepage for modern apps.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="./frontend/css/shared.css">
-    <title>Auth System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./frontend/css/style.css">
+    <title>auth-system</title>
+    <style>
+
+    </style>
 </head>
 
-<body class="landing-page">
-    <main class="landing-shell">
-        <section class="landing-card">
-            <div class="landing-copy">
-                <p class="landing-eyebrow">Authentication Demo</p>
-                <h1>Sign up and log in from a real homepage.</h1>
-                <p class="landing-text">
-                    This GitHub Pages site now points to the actual frontend instead of an empty README render.
-                    Use the links below to open the authentication screens.
-                </p>
-                <div class="landing-actions">
-                    <a class="form-btn form-btn--submit landing-btn" href="./frontend/pages/signup.html">Open Sign Up</a>
-                    <a class="form-btn form-btn--ghost landing-btn" href="./frontend/pages/login.html">Open Login</a>
+<body>
+    <main class="page-shell">
+        <div class="auth-layout">
+            <section class="brand-panel">
+                <div>
+                    <div class="brand-badge">Developer Portfolio</div>
+                    <p class="brand-name">auth-system</p>
+                    <h1>Secure authentication for modern apps.</h1>
+                    <p class="brand-copy">
+                        A focused dark-mode auth experience with clean validation, loading states, and a polished SaaS feel.
+                    </p>
+
+                    <div class="signal-grid" aria-label="Product highlights">
+                        <article class="signal-card">
+                            <span class="signal-label">Security</span>
+                            <strong>Session ready</strong>
+                            <p>Designed for real login flows, protected routes, and API-backed auth.</p>
+                        </article>
+                        <article class="signal-card">
+                            <span class="signal-label">UX</span>
+                            <strong>Inline validation</strong>
+                            <p>Every field has clear error and success feedback with smooth transitions.</p>
+                        </article>
+                        <article class="signal-card">
+                            <span class="signal-label">Design</span>
+                            <strong>Dark SaaS aesthetic</strong>
+                            <p>Glass surfaces, subtle glow, and compact layout without empty hero space.</p>
+                        </article>
+                    </div>
+
+                    <div class="chip-row" aria-hidden="true">
+                        <span class="chip">POST /api/login</span>
+                        <span class="chip">remember_me=true</span>
+                        <span class="chip">loading-state</span>
+                    </div>
                 </div>
-                <div class="landing-note">
-                    <strong>Backend note:</strong> form submission needs the Express API running on
-                    <code>http://localhost:8080</code> or another deployed API URL.
+
+                <div class="page-links">
+                    <a class="page-link" href="./frontend/pages/login.html">Open old login page</a>
+                    <a class="page-link" href="./frontend/pages/signup.html">Open old signup page</a>
                 </div>
-            </div>
-            <div class="landing-preview">
-                <img src="./assets/sign.jpg" alt="Auth interface preview" class="landing-image">
-            </div>
-        </section>
+            </section>
+
+            <section class="auth-card" aria-labelledby="auth-title">
+                <div class="auth-header">
+                    <div>
+                        <p class="eyebrow">Authentication</p>
+                        <h2 id="auth-title">Access your workspace</h2>
+                    </div>
+                    <div class="auth-tabs" role="tablist" aria-label="Authentication forms">
+                        <button class="auth-tab is-active" type="button" role="tab" aria-selected="true"
+                            data-target="login-panel">
+                            Log in
+                        </button>
+                        <button class="auth-tab" type="button" role="tab" aria-selected="false"
+                            data-target="signup-panel">
+                            Sign up
+                        </button>
+                    </div>
+                </div>
+
+                <form class="auth-form is-active" id="login-panel" novalidate>
+                    <div class="form-intro">
+                        <h3>Welcome back</h3>
+                        <p>Use your email and password to continue.</p>
+                    </div>
+
+                    <div class="form-field" data-field>
+                        <label for="login-email">Email</label>
+                        <input id="login-email" type="email" name="email" placeholder="you@company.com" autocomplete="email">
+                        <span class="field-message" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-field" data-field>
+                        <div class="form-topline">
+                            <label for="login-password">Password</label>
+                            <a href="#" class="text-link" id="forgot-link">Forgot password?</a>
+                        </div>
+                        <input id="login-password" type="password" name="password" placeholder="Enter your password"
+                            autocomplete="current-password">
+                        <span class="field-message" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-row form-row-between">
+                        <label class="checkbox-row" for="remember-me">
+                            <input id="remember-me" type="checkbox" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                        <span class="micro-copy">Secure session storage</span>
+                    </div>
+
+                    <p class="form-status" aria-live="polite"></p>
+
+                    <button class="submit-button" type="submit">
+                        <span class="submit-label">Log in</span><span class="submit-loader" aria-hidden="true"></span>
+                    </button>
+
+                    <p class="form-switch-copy">
+                        New to auth-system?
+                        <button class="text-button" type="button" data-switch-to="signup-panel">Create an account</button>
+                    </p>
+                </form>
+
+                <form class="auth-form" id="signup-panel" novalidate hidden>
+                    <div class="form-intro">
+                        <h3>Create your account</h3>
+                        <p>Set up a secure workspace in under a minute.</p>
+                    </div>
+
+                    <div class="form-field" data-field>
+                        <label for="signup-name">Full name</label>
+                        <input id="signup-name" type="text" name="name" placeholder="Jane Developer" autocomplete="name">
+                        <span class="field-message" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-field" data-field>
+                        <label for="signup-email">Email</label>
+                        <input id="signup-email" type="email" name="email" placeholder="you@company.com" autocomplete="email">
+                        <span class="field-message" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-field" data-field>
+                        <label for="signup-password">Password</label>
+                        <input id="signup-password" type="password" name="password" placeholder="At least 8 characters"
+                            autocomplete="new-password">
+                        <span class="field-message" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-field" data-field>
+                        <label for="signup-confirm-password">Confirm password</label>
+                        <input id="signup-confirm-password" type="password" name="confirmPassword"
+                            placeholder="Repeat your password" autocomplete="new-password">
+                        <span class="field-message" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="checkbox-row" for="terms-check">
+                            <input id="terms-check" type="checkbox" name="terms">
+                            <span>I agree to the terms and privacy policy</span>
+                        </label>
+                    </div>
+
+                    <p class="form-status" aria-live="polite"></p>
+
+                    <button class="submit-button" type="submit">
+                        <span class="submit-label">Create account</span><span class="submit-loader" aria-hidden="true"></span>
+                    </button>
+
+                    <p class="form-switch-copy">
+                        Already have an account?
+                        <button class="text-button" type="button" data-switch-to="login-panel">Back to login</button>
+                    </p>
+                </form>
+            </section>
+        </div>
     </main>
+
+    <script>
+        const tabButtons = document.querySelectorAll(".auth-tab");
+        const forms = document.querySelectorAll(".auth-form");
+        const switchButtons = document.querySelectorAll("[data-switch-to]");
+        const forgotPasswordLink = document.getElementById("forgot-link");
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        const fieldRules = {
+            "login-email": (value) => {
+                if (!value.trim()) return { state: "invalid", message: "Email is required." };
+                if (!emailPattern.test(value.trim())) return { state: "invalid", message: "Enter a valid email address." };
+                return { state: "valid", message: "Email looks good." };
+            },
+            "login-password": (value) => {
+                if (!value.trim()) return { state: "invalid", message: "Password is required." };
+                if (value.trim().length < 8) return { state: "invalid", message: "Password must be at least 8 characters." };
+                return { state: "valid", message: "Password format is valid." };
+            },
+            "signup-name": (value) => {
+                if (!value.trim()) return { state: "invalid", message: "Full name is required." };
+                if (value.trim().length < 3) return { state: "invalid", message: "Use at least 3 characters." };
+                return { state: "valid", message: "Name looks good." };
+            },
+            "signup-email": (value) => {
+                if (!value.trim()) return { state: "invalid", message: "Email is required." };
+                if (!emailPattern.test(value.trim())) return { state: "invalid", message: "Enter a valid email address." };
+                return { state: "valid", message: "Email looks good." };
+            },
+            "signup-password": (value) => {
+                if (!value.trim()) return { state: "invalid", message: "Password is required." };
+                if (value.trim().length < 8) return { state: "invalid", message: "Use at least 8 characters." };
+                return { state: "valid", message: "Strong enough for a demo account." };
+            },
+            "signup-confirm-password": (value, input) => {
+                const passwordInput = input.form.querySelector("#signup-password");
+                if (!value.trim()) return { state: "invalid", message: "Please confirm your password." };
+                if (value !== passwordInput.value) return { state: "invalid", message: "Passwords do not match." };
+                return { state: "valid", message: "Passwords match." };
+            }
+        };
+
+        const setActivePanel = (targetId) => {
+            tabButtons.forEach((button) => {
+                const isActive = button.dataset.target === targetId;
+                button.classList.toggle("is-active", isActive);
+                button.setAttribute("aria-selected", String(isActive));
+            });
+
+            forms.forEach((form) => {
+                const isActive = form.id === targetId;
+                form.classList.toggle("is-active", isActive);
+                form.hidden = !isActive;
+            });
+        };
+
+        const setFieldState = (input, result) => {
+            const field = input.closest("[data-field]");
+            const message = field.querySelector(".field-message");
+
+            field.classList.remove("is-valid", "is-invalid");
+            field.classList.add(result.state === "valid" ? "is-valid" : "is-invalid");
+            message.textContent = result.message;
+        };
+
+        const validateInput = (input) => {
+            const validator = fieldRules[input.id];
+            if (!validator) return true;
+            const result = validator(input.value, input);
+            setFieldState(input, result);
+            return result.state === "valid";
+        };
+
+        const clearStatus = (form) => {
+            const status = form.querySelector(".form-status");
+            status.className = "form-status";
+            status.textContent = "";
+        };
+
+        const setLoadingState = (form, isLoading) => {
+            const button = form.querySelector(".submit-button");
+            button.classList.toggle("is-loading", isLoading);
+            button.disabled = isLoading;
+        };
+
+        const validateTerms = (form) => {
+            const termsInput = form.querySelector("#terms-check");
+            const status = form.querySelector(".form-status");
+
+            if (!termsInput) return true;
+            if (!termsInput.checked) {
+                status.className = "form-status is-error";
+                status.textContent = "Accept the terms to create your account.";
+                return false;
+            }
+
+            return true;
+        };
+
+        const handleSubmit = async (event) => {
+            event.preventDefault();
+
+            const form = event.currentTarget;
+            const status = form.querySelector(".form-status");
+            const inputs = Array.from(form.querySelectorAll("input:not([type='checkbox'])"));
+            const valid = inputs.map(validateInput).every(Boolean) && validateTerms(form);
+
+            if (!valid) {
+                if (!status.textContent) {
+                    status.className = "form-status is-error";
+                    status.textContent = "Fix the highlighted fields before continuing.";
+                }
+                return;
+            }
+
+            clearStatus(form);
+            setLoadingState(form, true);
+            await new Promise((resolve) => window.setTimeout(resolve, 1200));
+            setLoadingState(form, false);
+
+            status.className = "form-status is-success";
+            status.textContent = form.id === "login-panel"
+                ? "Login successful. Connect this form to your auth API next."
+                : "Account created. You can now switch back and log in.";
+
+            if (form.id === "signup-panel") {
+                window.setTimeout(() => setActivePanel("login-panel"), 900);
+            }
+        };
+
+        tabButtons.forEach((button) => {
+            button.addEventListener("click", () => setActivePanel(button.dataset.target));
+        });
+
+        switchButtons.forEach((button) => {
+            button.addEventListener("click", () => setActivePanel(button.dataset.switchTo));
+        });
+
+        Object.keys(fieldRules).forEach((id) => {
+            const input = document.getElementById(id);
+            if (!input) return;
+
+            input.addEventListener("blur", () => validateInput(input));
+            input.addEventListener("input", () => {
+                const field = input.closest("[data-field]");
+                if (field.classList.contains("is-invalid")) validateInput(input);
+
+                if (input.id === "signup-password") {
+                    const confirmInput = document.getElementById("signup-confirm-password");
+                    if (confirmInput.value) validateInput(confirmInput);
+                }
+            });
+        });
+
+        forgotPasswordLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            const loginStatus = document.querySelector("#login-panel .form-status");
+            loginStatus.className = "form-status";
+            loginStatus.textContent = "Hook this link into your password reset flow or recovery API.";
+        });
+
+        document.getElementById("terms-check").addEventListener("change", () => {
+            const signupForm = document.getElementById("signup-panel");
+            const status = signupForm.querySelector(".form-status");
+            if (status.classList.contains("is-error")) clearStatus(signupForm);
+        });
+
+        forms.forEach((form) => {
+            form.addEventListener("submit", handleSubmit);
+        });
+    </script>
 </body>
 
-</html>
+</html> -->

@@ -3,9 +3,7 @@ const passwordInput = document.getElementById("password");
 const warningMsg = document.getElementById("warningMsg");
 const form = document.querySelector(".form-box");
 const togglePasswordButton = document.querySelector(".eye-icon");
-const API_BASE_URL = window.AUTH_API_BASE_URL || "http://localhost:8080";
 
-const buildApiUrl = (path) => `${API_BASE_URL}${path}`;
 
 const togglePasswordVisibility = () => {
     passwordInput.type = passwordInput.type === "password" ? "text" : "password";
@@ -27,7 +25,7 @@ const handleInputForm = async (e) => {
     }
 
     try {
-        const response = await fetch(buildApiUrl("/api/login"), {
+        const response = await fetch('http://localhost:8000/api/login', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
